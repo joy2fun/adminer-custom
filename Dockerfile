@@ -1,9 +1,7 @@
-FROM php:alpine
+FROM ghcr.io/joy2fun/docker-php-alpine:master
 
 EXPOSE 8080
 
-COPY . .
+COPY --chown=www-data:www-data . .
 
 RUN sed -i '31d' index.php
-
-CMD [ "php", "-S", "0.0.0.0:8080", "-t", "." ]
